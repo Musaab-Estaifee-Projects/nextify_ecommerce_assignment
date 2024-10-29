@@ -5,6 +5,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/Home/Navbar";
 import { ClerkProvider } from "@clerk/nextjs";
+import Footer from "@/components/Home/Footer";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -42,6 +43,7 @@ export default function RootLayout({
         >
           <Navbar />
           {children}
+          <Footer />
         </body>
       </html>
     </ClerkProvider>
