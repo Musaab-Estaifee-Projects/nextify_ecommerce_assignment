@@ -3,7 +3,6 @@ import React from "react";
 
 const Category = async () => {
   const categories: string[] = await getAllCategories();
-  console.log(categories);
   return (
     <div className="pt-16 pb-12">
       <h1 className="text-center font-extrabold text-2xl uppercase">
