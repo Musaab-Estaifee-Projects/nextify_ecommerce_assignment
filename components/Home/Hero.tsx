@@ -32,11 +32,11 @@ const Hero = () => {
         {/* Image Stuff */}
         <div className="hidden lg:flex lg:items-center lg:justify-center">
           <Image
-            src="/assets/hero2.png"
-            width={600}
-            height={600}
+            src="/assets/hero4.svg"
+            width={500}
+            height={500}
             alt="Hero Image"
-            className="lg:h-[50%] lg:w-[50%] xl:w-[80%] xl:h-[80%]"
+            className="lg:h-[50%] lg:w-[50%] xl:w-[70%] xl:h-[70%] rounded-full border-[7px] border-orange-500"
           />
         </div>
       </div>
