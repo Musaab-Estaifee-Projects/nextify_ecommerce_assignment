@@ -12,9 +12,9 @@ const SearchDialog = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <SearchIcon size={24} cursor={"pointer"} />
+        <SearchIcon size={26} cursor={"pointer"} />
       </DialogTrigger>
-      <DialogContent className="bg-black">
+      <DialogContent className="bg-black w-4/5 max-md:rounded-md">
         <DialogHeader>
           <DialogTitle>Search For Products</DialogTitle>
         </DialogHeader>
@@ -22,7 +22,7 @@ const SearchDialog = () => {
           <input
             type="text"
             placeholder="Search here ..."
-            className="block w-full bg-gray-300 rounded-lg px-6 py-2 mt-2"
+            className="block w-full bg-gray-300 rounded-lg px-5 py-2 mt-2 text-black"
           />
         </form>
       </DialogContent>

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Space_Grotesk", Arial, Helvetica, sans-serif;
 }
 
 @layer base {
@@ -11,4 +11,3 @@ body {
     --radius: 0.5rem;
   }
 }
-
