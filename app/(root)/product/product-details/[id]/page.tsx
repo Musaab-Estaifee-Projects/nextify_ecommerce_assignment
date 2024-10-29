@@ -61,7 +61,7 @@ const ProductDetailsPage = async ({ params }: { params: { id: string } }) => {
             Category : {singleProduct?.category}
           </p>
           {/* AddToCart Button (Redux) */}
-          <AddToCart />
+          <AddToCart product={singleProduct} />
         </div>
       </div>
       <div className="w-4/5 mt-14 mx-auto">

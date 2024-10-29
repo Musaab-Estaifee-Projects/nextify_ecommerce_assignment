@@ -2,11 +2,11 @@ import React from "react";
 import {
   Dialog,
   DialogContent,
-  DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { SearchIcon } from "lucide-react";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 const SearchDialog = () => {
   return (
@@ -15,9 +15,9 @@ const SearchDialog = () => {
         <SearchIcon size={26} cursor={"pointer"} />
       </DialogTrigger>
       <DialogContent className="bg-black w-4/5 max-md:rounded-md">
-        <DialogHeader>
+        <VisuallyHidden>
           <DialogTitle>Search For Products</DialogTitle>
-        </DialogHeader>
+        </VisuallyHidden>
         <form>
           <input
             type="text"

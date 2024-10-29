@@ -1,8 +1,33 @@
+"use client";
 import { Button } from "@/components/ui/button";
+import { toast, useToast } from "@/hooks/use-toast";
+import { addItem, CartItem } from "@/store/cartSlice";
+import { Product } from "@/types/type";
 import React from "react";
+import { useDispatch } from "react-redux";
 
-const AddToCart = () => {
-  return <Button className="mt-5 bg-green-600">Add To Cart</Button>;
+const AddToCart = ({ product }: { product: Product }) => {
+  const dispatch = useDispatch();
+  const { toast } = useToast();
+
+  const addCartHandler = () => {
+     toast({
+       description: "Item added to the Cart",
+       variant: "success",
+     });
+    dispatch(addItem(product));
+  };
+
+  return (
+    <Button
+      onClick={() => {
+        addCartHandler();
+      }}
+      className="mt-5 bg-green-600"
+    >
+      Add To Cart
+    </Button>
+  );
 };
 
 export default AddToCart;
