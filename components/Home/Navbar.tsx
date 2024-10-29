@@ -12,8 +12,8 @@ const Navbar = () => {
       <div className="flex items-center justify-between w-[93%] md:w-5/5 mx-auto h-full">
         {/* Website Logo */}
         <Link href="/" className="flex items-center justify-center gap-1">
-          <Image src="/assets/cartLogo.svg" alt="logo" width={50} height={50} />
-          <h1 className="text-xl font-bold flex items-center justify-center tracking-wide">
+          <Image src="/assets/cartLogo.svg" alt="logo" width={40} height={40} />
+          <h1 className="text-2xl font-extrabold flex items-center justify-center tracking-wide">
             <p className="text-primary-500">Next</p>ify
           </h1>
         </Link>
