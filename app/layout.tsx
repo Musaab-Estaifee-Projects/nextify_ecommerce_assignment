@@ -4,6 +4,7 @@ import { Space_Grotesk } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/Home/Navbar";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -34,13 +35,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${spaceGrotesk.variable} ${geistSans.variable} ${geistMono.variable} antialiased bg-black text-gray-300`}
-      >
-        <Navbar />
-        {children}
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body
+          className={`${spaceGrotesk.variable} ${geistSans.variable} ${geistMono.variable} antialiased bg-black text-gray-300 font-spaceGrotesk`}
+        >
+          <Navbar />
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
