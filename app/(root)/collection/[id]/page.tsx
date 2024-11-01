@@ -8,7 +8,7 @@ const CollectionDetails = async ({
 }: {
   params: { id: string };
 }) => {
-    const { id } = await params;
+    const { id } = params;
   const collectionDetails = await getCollectionDetails(id);
   console.log(collectionDetails)
 
