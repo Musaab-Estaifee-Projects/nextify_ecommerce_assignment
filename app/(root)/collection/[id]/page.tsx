@@ -6,11 +6,10 @@ import React from "react";
 const CollectionDetails = async ({
   params,
 }: {
-  params: { id: string };
+  params: { collectionId: string };
 }) => {
-    const { id } = params;
-  const collectionDetails = await getCollectionDetails(id);
-  console.log(collectionDetails)
+  const collectionDetails = await getCollectionDetails(params.collectionId);
+  // console.log(collectionDetails);
 
   return (
     <div className="px-10 py-5 flex flex-col items-center gap-8">
@@ -37,3 +36,5 @@ const CollectionDetails = async ({
 };
 
 export default CollectionDetails;
+
+export const dynamic = "force-dynamic";
