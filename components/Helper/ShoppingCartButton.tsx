@@ -20,7 +20,7 @@ const ShoppingCartButton = () => {
           <ShoppingBagIcon size={26} cursor={"pointer"} />
         </div>
       </SheetTrigger>
-      <SheetContent className="bg-black overflow-auto h-full">
+      <SheetContent className="bg-[#0c0c0c] overflow-auto h-full">
         {/* CartSidebar */}
         <SheetTitle></SheetTitle>
         <CartSidebar items={items} />

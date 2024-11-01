@@ -1,45 +1,24 @@
-"use client";
-import { getAllProducts } from "@/lib/requests/requests";
-import { Product } from "@/types/type";
-import { Loader } from "lucide-react";
-import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
+import { getProducts } from "@/lib/actions";
 
-const AllProducts = () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [products, setProducts] = useState<Product[] | null>(null);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [loading, setLoading] = useState(true);
-  // console.log(products);
+const AllProducts = async () => {
+  const products = await getProducts();
 
-  useEffect(() => {
-    const getProducts = async () => {
-      setLoading(true);
-      try {
-        const products: Product[] = await getAllProducts();
-        setProducts(products);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    getProducts();
-  }, []);
   return (
-    <div className="pt-16 pb-12">
+    <div
+      className="pt-16 pb-12 flex flex-col items-center gap-10"
+      id="products"
+    >
       <h1 className="text-center font-extrabold text-2xl uppercase">
         All Products
       </h1>
-      {loading ? (
-        <div className="flex justify-center items-center mt-16">
-          <Loader size={32} className="animate-spin" />
-        </div>
+      {!products || products.length === 0 ? (
+        <p className="text-lg font-bold text-red-400">No products found</p>
       ) : (
-        <div className="w-4/5 mx-auto mt-16 grid gird-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-          {products?.map((product) => {
-            return <ProductCard key={product.id} product={product} />;
-          })}
+        <div className="flex flex-wrap mx-auto gap-16 items-center justify-center">
+          {products?.map((product: ProductType) => (
+            <ProductCard key={product._id} product={product} />
+          ))}
         </div>
       )}
     </div>

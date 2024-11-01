@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "fakestoreapi.com",
       },
+      {
+        hostname: "res.cloudinary.com",
+      },
     ],
   },
 };

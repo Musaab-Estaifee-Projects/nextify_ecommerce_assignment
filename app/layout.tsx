@@ -42,7 +42,7 @@ export default function RootLayout({
       <ClerkProvider>
         <html lang="en">
           <body
-            className={`${spaceGrotesk.variable} ${geistSans.variable} ${geistMono.variable} antialiased bg-black text-gray-300 font-spaceGrotesk`}
+            className={`${spaceGrotesk.variable} ${geistSans.variable} ${geistMono.variable} antialiased bg-[#0c0c0c] text-gray-300 font-spaceGrotesk`}
           >
             <Navbar />
             {children}

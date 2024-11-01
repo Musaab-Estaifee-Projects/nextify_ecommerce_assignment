@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import SearchDialog from "../Helper/SearchDialog";
+// import SearchDialog from "../Helper/SearchDialog";
 import { HeartIcon, UserIcon } from "lucide-react";
 import ShoppingCartButton from "../Helper/ShoppingCartButton";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
 const Navbar = () => {
   return (
-    <div className="h-[11vh] sticky top-0 z-[1] bg-black shadow-2xl">
+    <div className="h-[11vh] sticky top-0 z-[1] bg-[#0c0c0c] shadow-2xl">
       <div className="flex items-center justify-between w-[93%] md:w-5/5 mx-auto h-full">
         {/* Website Logo */}
         <Link href="/" className="flex items-center justify-center gap-1">
@@ -20,7 +20,7 @@ const Navbar = () => {
         {/* Icons */}
         <div className="flex items-center space-x-6">
           {/* Search Dialog */}
-          <SearchDialog />
+          {/* <SearchDialog /> */}
           <HeartIcon size={26} cursor={"pointer"} />
           {/* Shopping Cart Button */}
           <ShoppingCartButton />

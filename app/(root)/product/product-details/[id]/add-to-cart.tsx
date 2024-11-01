@@ -1,12 +1,11 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { toast, useToast } from "@/hooks/use-toast";
-import { addItem, CartItem } from "@/store/cartSlice";
-import { Product } from "@/types/type";
+import { useToast } from "@/hooks/use-toast";
+import { addItem } from "@/store/cartSlice";
 import React from "react";
 import { useDispatch } from "react-redux";
 
-const AddToCart = ({ product }: { product: Product }) => {
+const AddToCart = ({ product }: { product: ProductType }) => {
   const dispatch = useDispatch();
   const { toast } = useToast();
 

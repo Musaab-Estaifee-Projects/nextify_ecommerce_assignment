@@ -1,15 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface CartItem {
-  id: number;
+  _id: string;
   title: string;
   price: number;
   category: string;
-  image: string;
-  rating: {
-    rate: number;
-    count: number;
-  };
+  media: [string];
   quantity: number;
 }
 
@@ -28,7 +24,7 @@ const cartSlice = createSlice({
     // For type safety
     addItem: (state, action: PayloadAction<Omit<CartItem, "quantity">>) => {
       const existingItem = state.items.find(
-        (item) => item.id === action.payload.id
+        (item) => item._id === action.payload._id
       );
       if (existingItem) {
         existingItem.quantity += 1;
@@ -36,9 +32,9 @@ const cartSlice = createSlice({
         state.items.push({ ...action.payload, quantity: 1 });
       }
     },
-    removeItem: (state, action: PayloadAction<{ id: number }>) => {
+    removeItem: (state, action: PayloadAction<{ _id: string }>) => {
       const existingItem = state.items.find(
-        (item) => item.id === action.payload.id
+        (item) => item._id === action.payload._id
       );
       //   @ts-ignore
       if (existingItem.quantity > 1) {
@@ -46,7 +42,7 @@ const cartSlice = createSlice({
         existingItem.quantity -= 1;
       } else {
         state.items = state.items.filter(
-          (item) => item.id != action.payload.id
+          (item) => item._id != action.payload._id
         );
       }
     },

@@ -14,7 +14,7 @@ const SearchDialog = () => {
       <DialogTrigger asChild>
         <SearchIcon size={26} cursor={"pointer"} />
       </DialogTrigger>
-      <DialogContent className="bg-black w-4/5 max-md:rounded-md">
+      <DialogContent className="bg-[#0c0c0c] w-4/5 max-md:rounded-md">
         <VisuallyHidden>
           <DialogTitle>Search For Products</DialogTitle>
         </VisuallyHidden>

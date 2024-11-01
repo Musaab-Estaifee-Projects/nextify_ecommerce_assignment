@@ -1,28 +1,19 @@
 "use client";
-import { Product } from "@/types/type";
-import { HeartIcon, ShoppingBag, StarIcon } from "lucide-react";
+import { HeartIcon, ShoppingBag } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { Button } from "../ui/button";
 import { useDispatch } from "react-redux";
 import { addItem } from "@/store/cartSlice";
 import { useToast } from "@/hooks/use-toast";
 
-type Props = {
-  product: Product;
-};
-
-const ProductCard = ({ product }: Props) => {
-  const num = Math.round(product.rating.rate);
-
-  const ratingArray = new Array(num).fill(0);
+const ProductCard = ({ product }: { product: ProductType }) => {
 
   const { toast } = useToast();
 
   const dispatch = useDispatch();
 
-  const addToCartHandler = (product: Product) => {
+  const addToCartHandler = (product: ProductType) => {
     toast({
       description: "Item added to the Cart",
       variant: "success",
@@ -31,56 +22,41 @@ const ProductCard = ({ product }: Props) => {
   };
 
   return (
-    <div className="p-4">
-      <div className="w-[200px] h-[150px]">
+    <div className="flex flex-col gap-2">
+      <Link
+        href={`/product/product-details/${product._id}`}
+        className="w-[300px] flex flex-col gap-2"
+      >
         <Image
-          src={product.image}
-          width={100}
-          height={100}
+          src={product.media[0]}
+          width={300}
+          height={200}
           alt={product.title}
-          className="w-[80%] h-[80%] object-contain"
+          className="object-cover rounded-lg cursor-pointer border-[2px] border-neutral-400 h-[210px]"
         />
-      </div>
-      {/* Product Category */}
-      <p className="mt-3 text-xs capitalize">{product.category}</p>
-      {/* Product Title */}
-      <Link href={`/product/product-details/${product.id}`}>
-        <h1 className="text-md cursor-pointer hover:text-blue-400 transition-all hover:underline sm:w-full sm:truncate mt-1 font-semibold">
-          {product.title}
-        </h1>
+        <div className="px-2">
+          <h2 className="font-bold text-lg capitalize">{product.title}</h2>
+          <h2 className="font-bold text-md capitalize text-blue-400">
+            {product.category}
+          </h2>
+        </div>
       </Link>
-      {/* Rating */}
-      <div className="flex items-center">
-        {ratingArray.map((star) => {
-          return (
-            <StarIcon
-              key={Math.random() * 1000}
-              size={16}
-              fill="yellow"
-              className="text-yellow-500"
-            />
-          );
-        })}
-      </div>
-      {/* Pricing */}
-      <div className="flex mt-2 items-center space-x-2">
-        <p className="text-base line-through font-semibold opacity-50">{`$${(
-          product.price + 10
-        ).toFixed(2)}`}</p>
-        <p className="text-lg font-bold opacity-90">${product.price}</p>
-      </div>
-      {/* Buttons */}
-      <div className="mt-4 flex items-center space-x-2">
-        <Button
-          onClick={() => addToCartHandler(product)}
-          size={"icon"}
-          className="bg-green-600"
-        >
-          <ShoppingBag size={18} />
-        </Button>
-        <Button size={"icon"} className="bg-red-500">
-          <HeartIcon size={18} />
-        </Button>
+      <div className="flex justify-between items-center px-2">
+        <h3 className="text-2xl text-md capitalize font-bold text-green-500">
+          ${product.price}
+        </h3>
+        <div className="flex items-center justify-center">⭐⭐⭐⭐</div>
+        <div className="flex items-center justify-center gap-2">
+          <button className="bg-red-600 p-[6px] rounded-md flex items-center justify-center shadow-sm shadow-gray-700">
+            <HeartIcon size={20} />
+          </button>
+          <button
+            onClick={() => addToCartHandler(product)}
+            className="bg-green-700 p-[6px] rounded-md flex items-center justify-center shadow-sm shadow-gray-700"
+          >
+            <ShoppingBag size={20} />
+          </button>
+        </div>
       </div>
     </div>
   );

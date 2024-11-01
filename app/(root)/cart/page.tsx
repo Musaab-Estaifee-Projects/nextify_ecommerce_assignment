@@ -40,8 +40,8 @@ const CartPage = () => {
   };
 
   // Remove Item
-  const removeItemHandler = (id: number) => {
-    dispatch(removeItem({ id }));
+  const removeItemHandler = (_id: string) => {
+    dispatch(removeItem({ _id }));
   };
 
   // Handle Payment:
@@ -78,15 +78,15 @@ const CartPage = () => {
             </h1>
             {items.map((item) => {
               return (
-                <div key={item.id}>
+                <div key={item._id}>
                   <div className="flex pb-6 p-5 border-[1.5px] border-opacity-25 border-gray-200 items-center space-x-10">
                     <div className="">
                       <Image
-                        src={item.image}
+                        src={item.media[0]}
                         alt={item.title}
-                        width={180}
-                        height={180}
-                        // className="object-cover mx-auto"
+                        width={300}
+                        height={300}
+                        className="rounded-lg border-[2px] border-neutral-400"
                       />
                     </div>
                     <div>
@@ -113,7 +113,7 @@ const CartPage = () => {
                         </Button>
                         <Button
                           onClick={() => {
-                            removeItemHandler(item.id);
+                            removeItemHandler(item._id);
                           }}
                           variant={"destructive"}
                           className="font-semibold"

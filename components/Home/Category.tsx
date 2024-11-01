@@ -1,8 +1,7 @@
-import { getAllCategories } from "@/lib/requests/requests";
 import React from "react";
 
 const Category = async () => {
-  const categories: string[] = await getAllCategories();
+  const categories = ["Electronics", "Clothes", "Furnitures", "Games"];
   return (
     <div className="pt-16 pb-12">
       <h1 className="text-center font-extrabold text-2xl uppercase">
@@ -16,7 +15,7 @@ const Category = async () => {
               key={category}
               className="p-4 rounded-lg cursor-pointer text-center hover:scale-110 transition-all duration-200 bg-gray-200 shadow-sm shadow-white"
             >
-              <h1 className="text-sm sm:text-base md:text-lg capitalize font-extrabold text-black">
+              <h1 className="text-sm sm:text-base md:text-lg capitalize font-extrabold text-gray-600">
                 {category}
               </h1>
             </div>
