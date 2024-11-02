@@ -2,7 +2,7 @@
 
 ## Project Description
 
-This project is a full-stack e-commerce application developed using Next.js. The application allows users to browse products, add items to a shopping cart, sign in/sign up, and complete a simulated checkout process. This project includes a product management dashboard for admins and uses Auth0 for secure user authentication.
+This project is a full-stack e-commerce application developed using Next.js. The application allows users to browse products, add items to a shopping cart, sign in/sign up, and complete a simulated checkout process. This project includes a product management dashboard for admins and uses a secure user authentication.
 
 ---
 
