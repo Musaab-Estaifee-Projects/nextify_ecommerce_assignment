@@ -1,4 +1,4 @@
-# E-Commerce Application with Next.js
+# Nextify E-Commerce Application with Next.js
 
 ## Project Description
 
