@@ -22,6 +22,6 @@ This project is a full-stack e-commerce application developed using Next.js. The
 
 - **Product Browsing**: Users can view a wide range of products.
 - **Shopping Cart**: Users can add products to the cart, update quantities, and remove items.
-- **Checkout Simulation**: Users can confirm their orders and go through a simulated payment process.
+- **Checkout Simulation**: Users can confirm their orders and go through a fake payment process.
 - **Authentication**: Users can sign up and log in (secure access).
-- **Admin Dashboard**: Admins can manage products from a dashboard interface, including adding, editing, and deleting products.
+- **Admin Dashboard**: Admins can manage products and collections from a dashboard interface, including adding, editing, and deleting products and collections.
